@@ -234,6 +234,27 @@
     .callout { background: rgba(108,99,255,0.08); border: 1px solid rgba(108,99,255,0.2); border-radius: 12px; padding: 16px 20px; font-size: 14px; color: var(--v3-text); line-height: 1.6; margin-top: 20px; }
     .callout strong { color: var(--v3-accent2); }
 
+    /* RESOURCES */
+    .resource-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px; }
+    .resource-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: var(--v3-card);
+      border: 1px solid var(--v3-border);
+      border-radius: 14px;
+      padding: 20px 24px;
+      text-decoration: none;
+      color: var(--v3-text);
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .resource-card:hover { border-color: var(--v3-accent); background: var(--v3-card2); }
+    .resource-icon { font-size: 26px; flex-shrink: 0; }
+    .resource-info { flex: 1; }
+    .resource-name { font-size: 16px; font-weight: 700; color: var(--v3-text); }
+    .resource-source { font-size: 13px; color: var(--v3-muted); margin-top: 3px; }
+    .resource-arrow { font-size: 20px; color: var(--v3-accent2); flex-shrink: 0; }
+
     /* LOADING */
     #loading { display: flex; align-items: center; justify-content: center; height: 100vh; font-size: 16px; color: var(--v3-muted); }
 
@@ -298,6 +319,11 @@
         <span class="nav-icon">📅</span> Week 1 Schedule
         <span class="nav-check">✓</span>
       </div>
+      <div class="nav-section">Reference</div>
+      <div class="nav-item" data-section="resources" onclick="navigate('resources')">
+        <span class="nav-icon">📚</span> Resources
+        <span class="nav-check">✓</span>
+      </div>
     </nav>
   </aside>
 
@@ -310,7 +336,7 @@
       <div class="hero-chips">
         <span class="chip">🗓 Starting Monday</span>
         <span class="chip">📍 V3 Talent Partners</span>
-        <span class="chip">5 Sections to complete</span>
+        <span class="chip">6 Sections to complete</span>
       </div>
     </div>
 
@@ -346,10 +372,10 @@
         <div class="tool-card" id="tool-linkedin"><div class="tool-header"><div class="tool-emoji">💼</div><div style="flex:1"><div class="tool-name">LinkedIn Recruiter</div><div class="tool-sub">Sourcing & workflow</div></div><button class="tool-check-btn" onclick="toggleTool('linkedin')">✓</button></div><div class="tool-notes">Confirm you're properly set up in V3's LinkedIn Recruiter account and familiarize yourself with the sourcing workflow.</div><a class="tool-link" href="#" target="_blank">📖 LinkedIn Recruiter Setup & Workflow ↗</a></div>
         <div class="tool-card" id="tool-gem"><div class="tool-header"><div class="tool-emoji">💎</div><div style="flex:1"><div class="tool-name">Gem ATS</div><div class="tool-sub">Applicant tracking system</div></div><button class="tool-check-btn" onclick="toggleTool('gem')">✓</button></div><div class="tool-notes">V3's primary ATS for managing candidates and pipelines. Read through the V3 User Guide to get fully up to speed.</div><a class="tool-link" href="#" target="_blank">📖 V3 User Guide to Gem ATS ↗</a></div>
         <div class="tool-card" id="tool-gemoutreach"><div class="tool-header"><div class="tool-emoji">📨</div><div style="flex:1"><div class="tool-name">Gem Outreach</div><div class="tool-sub">Email outreach sequences</div></div><button class="tool-check-btn" onclick="toggleTool('gemoutreach')">✓</button></div><div class="tool-notes">Learn how to use Gem for email outreach sequences to candidates. Set up your first sequence before week 2.</div><a class="tool-link" href="#" target="_blank">📖 Using Gem for Email Outreach ↗</a></div>
-        <div class="tool-card" id="tool-metaview"><div class="tool-header"><div class="tool-emoji">🎙️</div><div style="flex:1"><div class="tool-name">Metaview</div><div class="tool-sub">Interview note-taking AI</div></div><button class="tool-check-btn" onclick="toggleTool('metaview')">✓</button></div><div class="tool-notes">AI-powered interview assistant that auto-takes notes and creates summaries so you can focus on the conversation.</div><a class="tool-link" href="#" target="_blank">📖 V3 Guide to Metaview ↗</a></div>
-        <div class="tool-card" id="tool-juicebox"><div class="tool-header"><div class="tool-emoji">🧃</div><div style="flex:1"><div class="tool-name">Juicebox (PeopleGPT)</div><div class="tool-sub">AI sourcing platform</div></div><button class="tool-check-btn" onclick="toggleTool('juicebox')">✓</button></div><div class="tool-notes">AI-powered sourcing tool. Learn outreach within PeopleGPT, sourcing to Gem pipeline, and how to leverage Sourcing Agents.</div><a class="tool-link" href="#" target="_blank">📖 PeopleGPT Knowledge Base ↗</a></div>
+        <div class="tool-card" id="tool-metaview"><div class="tool-header"><div class="tool-emoji">😙️</div><div style="flex:1"><div class="tool-name">Metaview</div><div class="tool-sub">Interview note-taking AI</div></div><button class="tool-check-btn" onclick="toggleTool('metaview')">✓</button></div><div class="tool-notes">AI-powered interview assistant that auto-takes notes and creates summaries so you can focus on the conversation.</div><a class="tool-link" href="#" target="_blank">📖 V3 Guide to Metaview ↗</a></div>
+        <div class="tool-card" id="tool-juicebox"><div class="tool-header"><div class="tool-emoji">🧃</div><div style="flex:1"><div class="tool-name">Juicebox (PeopleGPT)</div><div class="tool-sub">AI-sourcing platform</div></div><button class="tool-check-btn" onclick="toggleTool('juicebox')">✓</button></div><div class="tool-notes">AI-powered sourcing tool. Learn outreach within PeopleGPT, sourcing to Gem pipeline, and how to leverage Sourcing Agents.</div><a class="tool-link" href="#" target="_blank">📖 PeopleGPT Knowledge Base ↗</a></div>
         <div class="tool-card" id="tool-zoom"><div class="tool-header"><div class="tool-emoji">📹</div><div style="flex:1"><div class="tool-name">Zoom</div><div class="tool-sub">Video conferencing</div></div><button class="tool-check-btn" onclick="toggleTool('zoom')">✓</button></div><div class="tool-notes">Confirm your Zoom license is active and properly configured for candidate and client calls.</div><a class="tool-link" href="#" target="_blank">📖 Zoom License Confirmation ↗</a></div>
-        <div class="tool-card" id="tool-calendly"><div class="tool-header"><div class="tool-emoji">📆</div><div style="flex:1"><div class="tool-name">Calendly</div><div class="tool-sub">Scheduling & invites</div></div><button class="tool-check-btn" onclick="toggleTool('calendly')">✓</button></div><div class="tool-notes">Set up your Calendly invite link with spam-avoidance best practices so your scheduling links land in inboxes.</div><a class="tool-link" href="#" target="_blank">📖 Invite Setup for Spam Avoidance ↗</a></div>
+        <div class="tool-card" id="tool-calendly"><div class="tool-header"><div class="tool-emoji">�</div><div style="flex:1"><div class="tool-name">Calendly</div><div class="tool-sub">Scheduling & invites</div></div><button class="tool-check-btn" onclick="toggleTool('calendly')">✓</button></div><div class="tool-notes">Set up your Calendly invite link with spam-avoidance best practices so your scheduling links land in inboxes.</div><a class="tool-link" href="#" target="_blank">📖 Invite Setup for Spam Avoidance ↗</a></div>
         <div class="tool-card" id="tool-airtable"><div class="tool-header"><div class="tool-emoji">📊</div><div style="flex:1"><div class="tool-name">V3 Client Hub (Airtable)</div><div class="tool-sub">Internal role visibility</div></div><button class="tool-check-btn" onclick="toggleTool('airtable')">✓</button></div><div class="tool-notes">Bookmark this! Every active V3 role must be added here in addition to Gem. Gives fast, cross-team visibility across all open roles.</div><a class="tool-link" href="#" target="_blank">🔗 Open Client Hub ↗</a></div>
         <div class="tool-card" id="tool-paraform"><div class="tool-header"><div class="tool-emoji">⚡</div><div style="flex:1"><div class="tool-name">Paraform</div><div class="tool-sub">Recruiting marketplace</div></div><button class="tool-check-btn" onclick="toggleTool('paraform')">✓</button></div><div class="tool-notes">Understand what Paraform is and how to use it effectively to source additional opportunities for V3 clients.</div><a class="tool-link" href="#" target="_blank">📖 What is Paraform? ↗</a></div>
       </div>
@@ -448,7 +474,42 @@
         </div>
       </div>
       <div class="callout" style="margin-top:24px"><strong>💡 Shadowing tip:</strong> Come prepared with 2–3 questions for each screen you shadow. Pay close attention to how each recruiter positions V3 to candidates and handles objections — every recruiter has their own style worth learning from.</div>
-      <div class="bottom-nav"><button class="btn btn-ghost" onclick="navigate('org')">← Back</button><button class="btn btn-primary" onclick="allDone()">🎉 Mark All Complete</button></div>
+      <div class="bottom-nav"><button class="btn btn-ghost" onclick="navigate('org')">← Back</button><button class="btn btn-primary" onclick="navigate('resources')">Next: Resources →</button></div>
+    </section>
+
+    <!-- RESOURCES -->
+    <section id="section-resources" class="section">
+      <div class="section-header">
+        <div class="section-icon">📚</div>
+        <div><div class="section-title">Resources</div><div class="section-desc">Key documents and links you'll reference throughout your time at V3</div></div>
+      </div>
+      <div class="resource-list">
+        <a class="resource-card" href="#" target="_blank">
+          <div class="resource-icon">📁</div>
+          <div class="resource-info">
+            <div class="resource-name">Client Onboarding Docs</div>
+            <div class="resource-source">Google Drive</div>
+          </div>
+          <div class="resource-arrow">↗</div>
+        </a>
+        <a class="resource-card" href="#" target="_blank">
+          <div class="resource-icon">📊</div>
+          <div class="resource-info">
+            <div class="resource-name">Client Airtable List</div>
+            <div class="resource-source">Airtable</div>
+          </div>
+          <div class="resource-arrow">↗</div>
+        </a>
+        <a class="resource-card" href="#" target="_blank">
+          <div class="resource-icon">✉️</div>
+          <div class="resource-info">
+            <div class="resource-name">Client Master List (Email Format)</div>
+            <div class="resource-source">Google Sheets</div>
+          </div>
+          <div class="resource-arrow">↗</div>
+        </a>
+      </div>
+      <div class="bottom-nav"><button class="btn btn-ghost" onclick="navigate('week1')">← Back</button><button class="btn btn-primary" onclick="allDone()">🎉 Mark All Complete</button></div>
     </section>
   </main>
 </div>
@@ -456,7 +517,7 @@
 <script>
   const toolState = { gmail:true, linkedin:false, gem:false, gemoutreach:false, metaview:false, juicebox:false, zoom:false, calendly:false, airtable:false, paraform:false };
   const stepState = { 1:false, 2:false, 3:false };
-  const sectionComplete = { welcome:false, tools:false, gem:false, org:false, week1:false };
+  const sectionComplete = { welcome:false, tools:false, gem:false, org:false, week1:false, resources:false };
 
   // Load employee name from API
   async function init() {
@@ -534,10 +595,11 @@
   function allDone() {
     document.querySelectorAll('.schedule-item').forEach(el => el.classList.add('done'));
     markSectionDone('week1');
+    markSectionDone('resources');
     updateProgress();
     setTimeout(() => {
-      document.querySelector('#section-week1 .callout').innerHTML =
-        '<strong>🎉 You\'re all set!</strong> Week 1 is complete. Welcome to the V3 family!';
+      document.querySelector('#section-resources .bottom-nav').innerHTML =
+        '<div class="callout" style="width:100%;text-align:center"><strong>🎉 You\'re all set!</strong> Onboarding complete. Welcome to the V3 family!</div>';
     }, 300);
   }
 
